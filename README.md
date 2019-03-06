@@ -1,2 +1,2 @@
 # learning-CPP
-Projects from my C++ course
+This is a collection of basic C++ projects from my intermediate C++ college course. 
