@@ -23,8 +23,8 @@ int main()
     cout << compareVersions("300", "299.9.9") << endl; // 1
     cout << compareVersions("5.1.1", "4") << endl; // 1
     */
-    cout << compareVersions("300.2.1", "256") << endl; // 1
-    cout << compareVersions("301.2.1", "301.2.1") << endl; // 0
+    cout << compareVersions("300.23.15", "256") << endl; // 1
+    cout << compareVersions("301.23", "301.2.1") << endl; // 0
 
     return 0;
 }
@@ -52,29 +52,22 @@ int compareVersions(string ver1, string ver2)
     {
         if ((ver1[i] == '.'))
         {
-
-            if (decimalCounter == 0) // store MAJOR 300.112.2
+            if (decimalCounter == 0) // store MAJOR 301.23.15, 301.23
             {
-                ver1Major = stoi(ver1.substr(0, ver1[i - 1]));
-                previousDecimal = i;
+                ver1Major = stoi(ver1.substr(0, i));
+                ver1.erase(0, i + 1);
+                i = 0;
             }
-            else if (decimalCounter == 1) // store MINOR
+            else if (decimalCounter == 1) // store minor
             {
-                ver1Minor = stoi(ver1.substr(ver1[previousDecimal + 1], (i - (ver1[previousDecimal + 1])))); 
-                previousDecimal = i;
+                ver1Minor = stoi(ver1.substr(0, i));
+                ver1.erase(0, i + 1);
+                ver1Revision = stoi(ver1); 
             }
-            /*s
-            else if (decimalCounter == 2) // store REVISION
-            {
-                previousDecimal = i;
-                temp = ver1.substr(ver1[previousDecimal + 1], ver1[i - 1]);
-                ver1Revision = stoi(temp); 
-            }
-            */
-
              decimalCounter++;
 
         }
     }
-    return ver1Major;
+    return ver1Revision;
 }
+
