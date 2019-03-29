@@ -15,17 +15,15 @@ int main()
 {
     string ver1, ver2;
 
-    /*
     cout << compareVersions("1.0", "1.1") << endl;  // -1
     cout << compareVersions("2.0", "2.0.1") << endl; // -1
     cout << compareVersions("0.1", "0.2") << endl; // -1
     cout << compareVersions("0.13.1", "0.13.2") << endl; // -1
     cout << compareVersions("300", "299.9.9") << endl; // 1
     cout << compareVersions("5.1.1", "4") << endl; // 1
-    */
     cout << compareVersions("300.23.15", "256") << endl; // 1
     cout << compareVersions("301.23", "301.2.1") << endl; // 0
-
+    cout << compareVersions(".48.7", ".47.8") << endl; // 1
     return 0;
 }
 
@@ -43,31 +41,57 @@ int main()
  *     int compareVersions(string ver1, string ver2)
  */
 int compareVersions(string ver1, string ver2)
-{
-    string temp; 
-    int decimalCounter = 0, previousDecimal = 0, ver1Major = 0, ver1Minor = 0, 
+{ 
+    int dotCounter = 0, firstDot = 0, secondDot = 0, previousDecimal = 0, ver1Major = 0, ver1Minor = 0, 
         ver1Revision = 0, ver2Major = 0, ver2Minor = 0, ver2Revision = 0;
 
+    // store dot positions
     for (int i = 0; i < ver1.size(); i++)
     {
-        if ((ver1[i] == '.'))
+        if (ver1[i] == '.')
         {
-            if (decimalCounter == 0) // store MAJOR 301.23.15, 301.23
-            {
-                ver1Major = stoi(ver1.substr(0, i));
-                ver1.erase(0, i + 1);
-                i = 0;
-            }
-            else if (decimalCounter == 1) // store minor
-            {
-                ver1Minor = stoi(ver1.substr(0, i));
-                ver1.erase(0, i + 1);
-                ver1Revision = stoi(ver1); 
-            }
-             decimalCounter++;
-
+            dotCounter++;
+            if (dotCounter == 1)
+                firstDot = i;
+            else if (dotCounter == 2)
+                secondDot = i;
         }
     }
-    return ver1Revision;
-}
 
+    // VERSION 1: store major, minor, and revision into integer variables
+    if (dotCounter == 0)
+    {
+        ver1Major = stoi(ver1);
+        ver1Minor = 0;
+        ver1Revision = 0;
+    }
+    else if (dotCounter == 1)
+    {
+        if (firstDot == 0)
+            ver1Major = 0;
+        else
+            ver1Major = stoi(ver1.substr(0, firstDot));
+        
+        ver1Minor = stoi(ver1.substr(firstDot + 1, ver1.size() - firstDot));
+        ver1Revision = 0;
+    }
+    else if (dotCounter == 2)
+    {
+        if (firstDot == 0)
+            ver1Major = 0;
+        else
+            ver1Major = stoi(ver1.substr(0, firstDot));
+        
+        ver1Minor = stoi(ver1.substr(firstDot + 1, secondDot - (firstDot + 1)));
+        ver1Revision = stoi(ver1.substr(secondDot + 1, ver1.size() - secondDot));
+    }
+    
+
+
+    
+        cout << ver1Major << "." << ver1Minor << "." << ver1Revision << endl;
+
+
+
+    //return firstDot;
+}
