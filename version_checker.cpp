@@ -1,10 +1,3 @@
-/**
- * Assignment#5.1
- * DUE: 3/25/19
- * NAME: Ryan Hathcock
- * PURPOSE: Compare two versions of a software product to determine which version is the latest.
- */
-
 #include <iostream>
 #include <string>
 using namespace std;
