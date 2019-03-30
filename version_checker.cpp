@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-int compareVersions(string ver1, string ver2);
+int versionCompare(string ver1, string ver2);
 
 int main()
 {
