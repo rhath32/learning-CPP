@@ -15,18 +15,18 @@ int main()
 {
     string ver1, ver2;
 
-    cout << compareVersions("1.0", "1.1") << endl;  // -1
-    cout << compareVersions("2.0", "2.0.1") << endl; // -1
-    cout << compareVersions("0.1", "0.2") << endl; // -1
-    cout << compareVersions("0.13.1", "0.13.2") << endl; // -1
-    cout << compareVersions("300", "299.9.9") << endl; // 1
-    cout << compareVersions("5.1.1", "4") << endl; // 1
-    cout << compareVersions("300.23.15", "256") << endl; // 1
-    cout << compareVersions("301.23.1", "301.23.1") << endl; // 0
-    cout << compareVersions("850", "850.0.0") << endl; // 0
-    cout << compareVersions(".0.1", ".0.2") << endl; // -1
-    cout << compareVersions("3.1.1", "4") << endl; // -1
-    cout << compareVersions("1.1", "1") << endl; // 1
+    cout << versionCompare("1.0", "1.1") << endl;  // -1
+    cout << versionCompare("2.0", "2.0.1") << endl; // -1
+    cout << versionCompare("0.1", "0.2") << endl; // -1
+    cout << versionCompare("0.13.1", "0.13.2") << endl; // -1
+    cout << versionCompare("300", "299.9.9") << endl; // 1
+    cout << versionCompare("5.1.1", "4") << endl; // 1
+    cout << versionCompare("300.23.15", "256") << endl; // 1
+    cout << versionCompare("301.23.1", "301.23.1") << endl; // 0
+    cout << versionCompare("850", "850.0.0") << endl; // 0
+    cout << versionCompare(".0.1", ".0.2") << endl; // -1
+    cout << versionCompare("3.1.1", "4") << endl; // -1
+    cout << versionCompare("1.1", "1") << endl; // 1
     return 0;
 }
 
@@ -43,7 +43,7 @@ int main()
  * FUNCTION SINGATURE:
  *     int compareVersions(string ver1, string ver2)
  */
-int compareVersions(string ver1, string ver2)
+int versionCompare(string ver1, string ver2)
 { 
     int dotCounter = 0, firstDot = 0, secondDot = 0, previousDecimal = 0, ver1Major = 0, ver1Minor = 0, 
         ver1Revision = 0, ver2Major = 0, ver2Minor = 0, ver2Revision = 0, comparisonResult = 0;
