@@ -63,3 +63,11 @@ OUTPUT: Total Combinations: 0
 INPUT: { 5 }, 9
 OUTPUT: 0
 */
+
+/*
+Lego heights {1,2,5}
+Solutions beginning {1,0,0,0,0,0,0,0}
+{1,1,1,1,1,1,1,1} lego height 1
+{1,1,2,2,3,3,4,4} lego height 2
+{1,1,2,2,3,4,5,6} lego height 5. Solution is the final element
+*/
