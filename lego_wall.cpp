@@ -1,3 +1,5 @@
+// This commit is heavily commented to help me further understand(and remember) the basics of dynamic programming. 
+
 #include <iostream>
 #include <vector>
 
