@@ -1,0 +1,60 @@
+/* This code is my first introduction to working with linked lists and nodes. 
+*  It creates two lists that share a common node(c). The function getClosestCommonWaypoint finds
+*  and returns the common intersecting node.
+*/
+
+#include<iostream>
+
+class Node {
+	public:
+		int value; 
+		Node* next; 
+		Node(int v) : value(v), next(NULL) {} 
+};
+
+class NodeFind {
+public:
+	// main function to provide solution
+	Node* getClosestCommonWaypoint(Node* A, Node* B);
+};
+
+int main()
+{
+	NodeFind nodefind;
+
+	// intersecting node
+	Node c(15), c1(10000);
+	c.next = &c1; c1.next = nullptr;
+
+	// list a
+	Node a(10), a1(11), a2(12);
+	a.next = &a1; a1.next = &a2; a2.next = &c1;
+
+	// list b
+	Node b(120), b1(11), b2(12);
+	b.next = &b1; b1.next = &b2; b2.next = &c1;
+
+	std::cout << nodefind.getClosestCommonWaypoint(&a, &b);
+	return 0;
+}
+
+/**
+* FUNCTION SIGNATURE: Node* getClosestCommonWaypoint(Node* A, Node* B);
+ * PURPOSE: find intesecting node of two linked lists
+ * PARAMETER:
+ *     Node* A, pointer to head of linked list a
+ *	   Node* B, pointer to head of linked list b
+ * RETURN VALUE:
+ *     intersecting node
+*/
+Node* nodefind::getClosestCommonWaypoint(Node* A, Node* B)
+{
+	for (; A != NULL; A = A->next)
+	{
+		for (Node* p = B; p != NULL; p = p->next) // 
+		{
+			if (p == A)
+				return p;
+		}
+	}
+}
