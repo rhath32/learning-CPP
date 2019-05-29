@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-class CIS14
+class Addresses
 {
 	public:
 		int getNumPossibleSigns(std::string* letterInventory, std::string* addresses, int length);
@@ -12,9 +12,9 @@ int main()
 	std::string addresses[] = {"123C","123A","123 ADA","567 CBA", "985 BAAAAC"};
 	std::string inventory = "AAAABCCC123456789";
 	int addrLength = sizeof(addresses) / sizeof(addresses[0]);
-	CIS14 cis14;
+	Addresses addresses;
 
-	std::cout << cis14.getNumPossibleSigns(&inventory, addresses, addrLength);
+	std::cout << addresses.getNumPossibleSigns(&inventory, addresses, addrLength);
 	return 0;
 }
 
@@ -32,7 +32,7 @@ int main()
  * RETURN VALUE:
  *    int: the number of possible addresses that can be formed from your inventory of letters
  */
-int CIS14::getNumPossibleSigns(std::string* letterInventory, std::string* addresses, int length)
+int Addresses::getNumPossibleSigns(std::string* letterInventory, std::string* addresses, int length)
 {
 	int possibleAddr = 0, currentChar = 0, addrCount[43] = { 0 }, invCount[43] = { 0 };
 	int arrayLength = sizeof(addrCount) / sizeof(addrCount[0]);
