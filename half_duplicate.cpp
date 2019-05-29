@@ -1,3 +1,5 @@
+// This code takes an input string and finds a character that appears to consist of half the string length.
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,7 +12,7 @@ int main()
     cout << findHalfDuplicate("a2a3a1") << endl;
     cout << findHalfDuplicate("2aa3") << endl;
     cout << findHalfDuplicate("1j2j3j4j5j") << endl;
-	cout << findHalfDuplicate("12345kkkkk");
+    cout << findHalfDuplicate("12345kkkkk");
     
     return 0;
 }
@@ -29,10 +31,10 @@ char findHalfDuplicate(string s)
                 count++; 
         }
         if (count == s.size() / 2)
-		{
-			halfDuplicate = s[i];
-			break;
-		}
+	{
+	     halfDuplicate = s[i];
+	     break;
+	}
     }
     return halfDuplicate;
 }
