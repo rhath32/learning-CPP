@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_set>
 
-class CIS14
+class DictionaryChecker
 {
 	public:
 		bool isInputInDictionary(std::string* s, std::unordered_set<std::string> &dict);
@@ -13,9 +13,9 @@ int main()
 {
 	std::string input = "applepiez";
 	std::unordered_set<std::string> dictionary({ "apple", "pie" });
-	CIS14 cis14;
+	DictionaryChecker checkDictionary;
 
-	std::cout << cis14.isInputInDictionary(&input, dictionary);
+	std::cout << checkDictionary.isInputInDictionary(&input, dictionary);
 	return 0;
 }
 
@@ -23,7 +23,7 @@ int main()
  * MEMBER FUNCTION NAME:
  *    isInputInDictionary
  * PURPOSE:
- *    This function is included in the CIS14 class. The function receives an input dictionary of strings
+ *    This function is included in the DictionaryChecker class. The function receives an input dictionary of strings
  *	  and an input string, then determines if the string is comprised of only words that are in the dictionary.
  * PARAMETER:
  *    string* s, pointer to input string
