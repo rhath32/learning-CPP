@@ -22,7 +22,7 @@ int main()
  * MEMBER FUNCTION NAME:
  *    getNumPossibleSigns
  * PURPOSE:
- *    This function is a member of the CIS14 class. It takes in a series of addresses in a string array
+ *    This function is a member of the Addresses class. It takes in a series of addresses in a string array
  *	  and compares each of them with the available letterInventory, returning the number of addresses 
  *	  that are POSSIBLE to form from the given letterInventory
  * PARAMETER:
